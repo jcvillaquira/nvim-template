@@ -9,6 +9,7 @@ return {
   -- == Examples of Adding Plugins ==
   "andweeb/presence.nvim",
   {"goerz/jupytext.vim", lazy = false},
+  {"kshenoy/vim-signature", lazy = false},
   {"azabiong/vim-highlighter", lazy = false},
   {"jpalardy/vim-slime", lazy = false},
   {"hanschen/vim-ipython-cell", lazy = false},
@@ -27,17 +28,17 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
+        " *****  ******* ******** ******   ******",
+        "**   ** **         **    **   ** **    **",
+        "******* *******    **    ******  **    **",
+        "**   **      **    **    **   ** **    **",
+        "**   ** *******    **    **   **  ******",
         " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+        "    ***    ** ██    ██ ██ ███    ███",
+        "    ****   ** ██    ██ ██ ████  ████",
+        "    ** **  ** ██    ██ ██ ██ ████ ██",
+        "    **  ** **  ██  ██  ██ ██  ██  ██",
+        "    **   ****   ████   ██ ██      ██",
       }
       return opts
     end,

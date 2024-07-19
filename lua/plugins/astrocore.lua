@@ -71,11 +71,10 @@ return {
         ["<leader>j"] = { ":<C-U>call search(input('/'))<cr># %%<cr>", desc = "Next cell" },
         ["<leader>k"] = { ":<C-U>call search(input('?'), 'b')<cr># %%<cr>", desc = "Previous cell" },
         ["<leader>r"] = { ":IPythonCellExecuteCell<cr>", desc = "Evaluate cell" },
-        ["<leader>R"] = { ":IPythonCellExecuteCell<cr>:<C-U>call search(input('/'))<cr># %%<cr>", desc = "Evaluate and move" },
-        ["<leader>N"] = { ":SlimeSend1 ecoipy<cr>:Hi + # %%<cr>15G", desc = "Prepare notebook" },
-        ["<leader>K"] = { ":IPythonCellRestart<cr>mzVgg:SlimeSend<cr>'z", desc = "Run above" },
-        ["<leader>P"] = { ":SlimeSend1 ecoipy<cr>", desc = "Execute IPython" },
-
+        ["<leader>R"] = { ":IPythonCellExecuteCell<cr>:<C-U>call search(input('/'))<cr># %%<cr>", desc = "Evaluate & move" },
+        ["<leader>N"] = { "mm:Hi + # %%<cr>:g:.*autoreload.*:s/# //<cr>'m", desc = "Prepare notebook" },
+        ["<leader>K"] = { ":IPythonCellRestart<cr>mmVgg:SlimeSend<cr>'m", desc = "Run above" },
+        ["<leader>P"] = { ":%s/run \\(.*\\)/\\=setreg('z', submatch(1))/n<cr>:execute \"SlimeSend1 \" . getreg('z')<cr>", desc = "# run cmd" },
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },
@@ -84,7 +83,6 @@ return {
         -- ["<esc>"] = false,
       },
       v = {
-        ["<leader>r"] = { ":JupyterSendRange<cr>", desc = "Evaluate selection" },
       },
     },
   },
