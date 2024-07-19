@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
@@ -7,8 +7,12 @@ if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
 
   -- == Examples of Adding Plugins ==
-
   "andweeb/presence.nvim",
+  {"goerz/jupytext.vim", lazy = false},
+  {"azabiong/vim-highlighter", lazy = false},
+  {"jpalardy/vim-slime", lazy = false},
+  {"hanschen/vim-ipython-cell", lazy = false},
+
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",

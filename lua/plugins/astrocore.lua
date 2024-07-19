@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -32,11 +32,16 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        colorcolumn = {81},
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        ipython_cell_delimit_cells_by = 'tags',
+        ipython_cell_tag = '# %%',
+        jupytext_fmt = 'py:percent',
+        ipython_cell_highlight_cells = 0,
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -63,9 +68,23 @@ return {
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
+        ["<leader>j"] = { ":<C-U>call search(input('/'))<cr># %%<cr>", desc = "Next cell" },
+        ["<leader>k"] = { ":<C-U>call search(input('?'), 'b')<cr># %%<cr>", desc = "Previous cell" },
+        ["<leader>r"] = { ":IPythonCellExecuteCell<cr>", desc = "Evaluate cell" },
+        ["<leader>R"] = { ":IPythonCellExecuteCell<cr>:<C-U>call search(input('/'))<cr># %%<cr>", desc = "Evaluate and move" },
+        ["<leader>N"] = { ":SlimeSend1 ecoipy<cr>:Hi + # %%<cr>15G", desc = "Prepare notebook" },
+        ["<leader>K"] = { ":IPythonCellRestart<cr>mzVgg:SlimeSend<cr>'z", desc = "Run above" },
+        ["<leader>P"] = { ":SlimeSend1 ecoipy<cr>", desc = "Execute IPython" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+      t = {
+        -- setting a mapping to false will disable it
+        -- ["<esc>"] = false,
+      },
+      v = {
+        ["<leader>r"] = { ":JupyterSendRange<cr>", desc = "Evaluate selection" },
       },
     },
   },
