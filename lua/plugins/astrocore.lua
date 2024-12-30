@@ -33,6 +33,7 @@ return {
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
         colorcolumn = {81},
+        cmdheight = 1,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -74,7 +75,7 @@ return {
         ["<leader>R"] = { ":IPythonCellExecuteCell<cr>:<C-U>call search(input('/'))<cr># %%<cr>", desc = "Evaluate & move" },
         ["<leader>N"] = { "mm:Hi + # %%<cr>:g:.*autoreload.*:s/# //<cr>'m", desc = "Prepare notebook" },
         ["<leader>K"] = { ":IPythonCellRestart<cr>mmVgg:SlimeSend<cr>'m", desc = "Run above" },
-        ["<leader>P"] = { ":%s/run \\(.*\\)/\\=setreg('z', submatch(1))/n<cr>:execute \"SlimeSend1 \" . getreg('z')<cr>", desc = "# run cmd" },
+        ["<leader>P"] = { ":%s/^# run \\([a-z]*\\)$/\\=setreg('z', submatch(1))/n<cr>:execute \"SlimeSend1 \" . getreg('z')<cr>", desc = "# run cmd" },
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },

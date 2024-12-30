@@ -9,6 +9,7 @@ return {
   -- == Examples of Adding Plugins ==
   "andweeb/presence.nvim",
   {"goerz/jupytext.vim", lazy = false},
+  {"Julian/lean.nvim", event = { 'BufReadPre *.lean', 'BufNewFile *.lean' }, opts = {mappings = true} },
   {"kshenoy/vim-signature", lazy = false},
   {"azabiong/vim-highlighter", lazy = false},
   {"jpalardy/vim-slime", lazy = false},
