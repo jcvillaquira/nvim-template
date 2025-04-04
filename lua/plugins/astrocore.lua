@@ -55,6 +55,7 @@ return {
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<leader>fp"] = { function() require('telescope').extensions.live_grep_args.live_grep_args() end, desc = "Live grep (args)" },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {
